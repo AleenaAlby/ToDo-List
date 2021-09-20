@@ -7,11 +7,14 @@ const Form = ({setInputText, todos, setTodos, inputText, setStatus}) => {
     }
 
     const submitTodoHandler = (e) =>{
-        e.preventDefault(); //prevent refreshing the page while clicking add button
+        //checks character length typed by user is greater than zero.
+        if(inputText.length > 0){
+             e.preventDefault(); //prevent refreshing the page while clicking add button
         setTodos([
             ...todos, {text : inputText, completed : false, id: Math.random() * 1000 }
-        ])
+        ]);
         setInputText('')
+        }
     }
 
     const statusHandler =(e) =>{
